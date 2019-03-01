@@ -1,0 +1,15 @@
+
+public class MathModule {
+
+	public static void main(String[] args) {
+		System.out.println(myMultiply(2000000000,6));
+		//Prints out a negative number when run
+		//Due to not using a long int to represent large numbers 
+
+	}
+	
+	public static int myMultiply(int firstNum, int secondNum) {
+		return firstNum*secondNum;
+	}
+
+}

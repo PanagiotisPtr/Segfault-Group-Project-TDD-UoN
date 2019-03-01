@@ -1,0 +1,31 @@
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.Ignore;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+class TestMyMathModule {
+	
+	
+	private static int input1;
+	private static int input2;
+	
+	@BeforeAll
+	static void setup() {
+		input1 = 3;
+		input2 = 6;
+	}
+	
+
+	@Ignore
+	void test() {
+		fail("Not yet implemented");
+	}
+
+	@Test 
+	void test1() {
+		int myAnswer = MathModule.myMultiply(4,2);
+		assertEquals(8, myAnswer);
+	}
+	
+}
