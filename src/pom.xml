@@ -9,7 +9,6 @@
   <version>1.0-SNAPSHOT</version>
 
   <name>tdd CW3</name>
-  <!-- FIXME change it to the project's website -->
   <url>https://projects.cs.nott.ac.uk/2018-FSE-All-Groups/2018-FSE-Team-SegFault</url>
 
   <properties>
@@ -46,8 +45,8 @@
           <artifactId>maven-checkstyle-plugin</artifactId>
           <version>3.0.0</version>
           <configuration>
-            <sourceDirectories><sourceDirectory>src/main/java</sourceDirectory></sourceDirectories>
-            <testSourceDirectories><testSourceDirectory>src/test/java</testSourceDirectory></testSourceDirectories>
+            <sourceDirectories><sourceDirectory>test</sourceDirectory></sourceDirectories>
+            <testSourceDirectories><testSourceDirectory>test</testSourceDirectory></testSourceDirectories>
             <configLocation>checkstyle.xml</configLocation>
             <includeTestSourceDirectory>true</includeTestSourceDirectory>
           </configuration>

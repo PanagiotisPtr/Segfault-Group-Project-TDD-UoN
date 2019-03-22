@@ -53,12 +53,12 @@
 
     <!-- Miscellaneous other checks.                   -->
     <!-- See http://checkstyle.sourceforge.net/config_misc.html -->
-    <module name="RegexpSingleline">
+    <!--<module name="RegexpSingleline">
        <property name="format" value="\s+$"/>
        <property name="minimum" value="0"/>
        <property name="maximum" value="0"/>
        <property name="message" value="Line has trailing spaces."/>
-    </module>
+    </module>-->
 
     <!-- Checks for Headers                                -->
     <!-- See http://checkstyle.sourceforge.net/config_header.html   -->
@@ -68,13 +68,6 @@
     <!-- </module> -->
 
     <module name="TreeWalker">
-
-        <!-- Checks for Javadoc comments.                     -->
-        <!-- See http://checkstyle.sourceforge.net/config_javadoc.html -->
-        <module name="JavadocMethod"/>
-        <module name="JavadocType"/>
-        <module name="JavadocVariable"/>
-        <module name="JavadocStyle"/>
 
         <!-- Checks for Naming Conventions.                  -->
         <!-- See http://checkstyle.sourceforge.net/config_naming.html -->
@@ -113,7 +106,6 @@
         <module name="OperatorWrap"/>
         <module name="ParenPad"/>
         <module name="TypecastParenPad"/>
-        <module name="WhitespaceAfter"/>
         <module name="WhitespaceAround"/>
 
         <!-- Modifier Checks                                    -->
@@ -124,11 +116,8 @@
         <!-- Checks for blocks. You know, those {}'s         -->
         <!-- See http://checkstyle.sourceforge.net/config_blocks.html -->
         <module name="AvoidNestedBlocks"/>
-        <module name="EmptyBlock"/>
         <module name="EmptyCatchBlock"/>
-        <module name="LeftCurly">
-            <property name="option" value="nl"/>
-        </module>
+	<module name="LeftCurly"/>
         <module name="NeedBraces">
             <property name="allowSingleLineStatement" value="true"/>
         </module>
@@ -142,12 +131,6 @@
         <module name="MissingSwitchDefault"/>
         <module name="SimplifyBooleanExpression"/>
         <module name="SimplifyBooleanReturn"/>
-
-        <!-- Checks for class design                         -->
-        <!-- See http://checkstyle.sourceforge.net/config_design.html -->
-        <module name="DesignForExtension"/>
-        <module name="FinalClass"/>
-        <module name="InterfaceIsType"/>
 
         <!-- Miscellaneous other checks.                   -->
         <!-- See http://checkstyle.sourceforge.net/config_misc.html -->
