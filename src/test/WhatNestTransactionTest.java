@@ -19,7 +19,8 @@ class WhatNestTransactionTest {
         // Test with constructor
         @Test
         void normalStringConstructor() {
-            WhatNestTransaction testTransaction = new WhatNestTransaction("test123", new BigDecimal(0), 0);
+            WhatNestTransaction testTransaction =
+                    new WhatNestTransaction("test123", new BigDecimal(0), 0);
             assertEquals("test123", testTransaction.transactionName());
         }
 
@@ -36,7 +37,8 @@ class WhatNestTransactionTest {
         // Test with constructor
         @Test
         void unicodeStringConstructor() {
-            WhatNestTransaction testTransaction = new WhatNestTransaction("σφάλμα", new BigDecimal(0), 0);
+            WhatNestTransaction testTransaction =
+                    new WhatNestTransaction("σφάλμα", new BigDecimal(0), 0);
             assertEquals("σφάλμα", testTransaction.transactionName());
         }
 
