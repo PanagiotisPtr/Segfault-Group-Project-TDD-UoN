@@ -21,7 +21,8 @@ class WhatNestTransactionTest {
         void testSmallNumbersConstructor() {
             WhatNestTransaction testTransaction =
                     new WhatNestTransaction("test", new BigDecimal("0.01"), 0);
-            assertEquals(new BigDecimal("0.01"), testTransaction.transactionValue());
+            assertEquals(new BigDecimal("0.01"),
+                    testTransaction.transactionValue());
         }
 
         // Test with setTransactionValue()
@@ -29,7 +30,8 @@ class WhatNestTransactionTest {
         void testSmallNumbersSetFunction() {
             WhatNestTransaction testTransaction = new WhatNestTransaction();
             testTransaction.setTransactionValue(new BigDecimal("0.01"));
-            assertEquals(new BigDecimal("0.01"), testTransaction.transactionValue());
+            assertEquals(new BigDecimal("0.01"),
+                    testTransaction.transactionValue());
         }
 
         // Check that NULL is handled properly - 1.4.2
@@ -56,8 +58,10 @@ class WhatNestTransactionTest {
         @Test
         void testHugeNumbersConstructor() {
             WhatNestTransaction testTransaction =
-                    new WhatNestTransaction("test", new BigDecimal("1000000000"), 0);
-            assertEquals(new BigDecimal("1000000000"), testTransaction.transactionValue());
+                    new WhatNestTransaction("test",
+                            new BigDecimal("1000000000"),0);
+            assertEquals(new BigDecimal("1000000000"),
+                    testTransaction.transactionValue());
         }
 
         // Test with setTransactionValue()
@@ -65,7 +69,8 @@ class WhatNestTransactionTest {
         void testHugeNumbersSetFunction() {
             WhatNestTransaction testTransaction = new WhatNestTransaction();
             testTransaction.setTransactionValue(new BigDecimal("1000000000"));
-            assertEquals(new BigDecimal("1000000000"), testTransaction.transactionValue());
+            assertEquals(new BigDecimal("1000000000"),
+                    testTransaction.transactionValue());
         }
 
         // Check that the value can handle normal numbers - 1.4.4
@@ -75,7 +80,8 @@ class WhatNestTransactionTest {
         void testNormalNumbersConstructor() {
             WhatNestTransaction testTransaction =
                     new WhatNestTransaction("test", new BigDecimal("100"), 0);
-            assertEquals(new BigDecimal("100"), testTransaction.transactionValue());
+            assertEquals(new BigDecimal("100"),
+                    testTransaction.transactionValue());
         }
 
         // Test with setTransactionValue()
@@ -83,7 +89,8 @@ class WhatNestTransactionTest {
         void testNormalNumbersSetFunction() {
             WhatNestTransaction testTransaction = new WhatNestTransaction();
             testTransaction.setTransactionValue(new BigDecimal("100"));
-            assertEquals(new BigDecimal("100"), testTransaction.transactionValue());
+            assertEquals(new BigDecimal("100"),
+                    testTransaction.transactionValue());
         }
     }
 }
