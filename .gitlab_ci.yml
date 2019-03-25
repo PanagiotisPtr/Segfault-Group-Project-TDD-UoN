@@ -1,0 +1,36 @@
+cache:
+  paths:
+    - src/.m2/repository
+
+variables:
+    MAVEN_OPTS: "-Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dhttps.protocols=TLSv1.2 -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true"
+    MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
+
+
+test:
+  image: maven:3.6-slim
+  script:
+    - cd src
+    - mvn site -DgenerateReports=false
+    - mvn $MAVEN_CLI_OPTS surefire-report:report
+    - cd ..
+  artifacts:
+    reports:
+      junit:
+        - target/surefire-reports/TEST-*.xml
+        - target/failsafe-reports/TEST-*.xml
+    paths:
+      - src/target/site/*
+      
+stylecheck:
+  image: maven:3.6-slim
+  script:
+    - cd src
+    - mvn site -DgenerateReports=false
+    - mvn $MAVEN_CLI_OPTS checkstyle:checkstyle
+    - cd ..
+  artifacts:
+    reports:
+      junit:
+    paths:
+      - src/target/site/*
