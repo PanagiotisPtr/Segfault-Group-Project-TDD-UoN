@@ -12,7 +12,7 @@ class WhatNestCategoryTest {
          * Create Category object with name "Example" and spend to 300 and make
          * sure that getCategorySpend returns 300
          * Written by: Lars Lunde 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void testCategorySpend() {
