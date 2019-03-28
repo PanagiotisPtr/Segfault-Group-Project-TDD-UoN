@@ -11,7 +11,7 @@ class WhatNestCategoryTest {
         /*
          * Make sure that the name changes when you call function with a string
          * Written by: Lars Lunde 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void baseCase() {
@@ -23,31 +23,33 @@ class WhatNestCategoryTest {
         /*
          * Check that it handles long names
          * Written by: Lars Lunde 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void longName() {
             WhatNestCategory cat = new WhatNestCategory("Example");
-            cat.setCategoryName("AVeryVeryLongLongName");
-            assertEquals("AVeryVeryLongLongName", cat.CategoryName());
+            assertThrows(Exception.class, () -> {
+                cat.setCategoryName("AVeryVeryLongLongName");        
+            });
         }
 
         /*
          * Check that it handles empty names
          * Written by: Lars Lunde 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void emptyName() {
             WhatNestCategory cat = new WhatNestCategory("Example");
-            cat.setCategoryName("");
-            assertEquals("", cat.CategoryName());
+            assertThrows(Exception.class, () -> {
+                cat.setCategoryName("");
+            });
         }
 
         /*
-         * Check that it handles empty names
+         * Create 2 classes with same name make sure it gives error
          * Written by: Lars Lunde 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void duplicateCategory() {
@@ -61,7 +63,7 @@ class WhatNestCategoryTest {
          * Make sure that class has spend and budget to 0 and not an arbitrary
          * value
          * Written by: Lars Lunde 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void testDefaults() {
@@ -75,27 +77,13 @@ class WhatNestCategoryTest {
          * Check Unicode characters
          * Using Constructor
          * Written by: Lars Lunde 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
-        void unicodeTestConstructor() {
-            WhatNestCategory cat = new WhatNestCategory("σφαλμα");
-            assertEquals("σφαλμα", cat.CategoryName());
-        }
-
-        /*
-         * Check Unicode characters
-         * Using Constructor
-         * Written by: Lars Lunde 28/03/2019
-         * Approved by:
-         */
-        @Test
-        void unicodeTestMethod() {
+        void testUnicodeName() {
             WhatNestCategory cat = new WhatNestCategory("Example");
             cat.setCategoryName("σφαλμα");
             assertEquals("σφαλμα", cat.CategoryName());
         }
-
-
     }
 }
