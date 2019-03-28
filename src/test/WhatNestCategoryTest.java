@@ -16,8 +16,9 @@ class WhatNestCategoryTest {
         @Test
         void testCategoryBudget() {
             WhatNestCategory cat = new WhatNestCategory("Example");
-            cat.setCategoryBudget(new BigDecimal("12.0"));
-            assertEquals(new BigDecimal("12.0"), cat.CategoryBudget());
+            BigDecimal tmp = new BigDecimal("12.0");
+            cat.setCategoryBudget(tmp);
+            assertEquals(0, tmp.compareTo(cat.CategoryBudget()));
         }
     }
 }
