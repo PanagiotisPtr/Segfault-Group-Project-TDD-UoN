@@ -11,7 +11,7 @@ class WhatNestCategoryTest {
         /*
          * Test that it sets Spend in a category to zero
          * Written by: Berk Demir 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void checkResetBudget(){
