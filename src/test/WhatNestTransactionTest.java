@@ -12,7 +12,7 @@ class WhatNestTransactionTest {
             /*
              * Ensure correct category is set for unknown transaction (0)
              * Written by: Matthew Smith 25/03/2019
-             * Approved by:
+             * Approved by: Panagiotis Petridis
              */
             @Test
             void initialCategory() {
@@ -21,9 +21,10 @@ class WhatNestTransactionTest {
             }
 
             /*
-             * Ensure correct name is set for transaction ("[Pending Transaction]")
+             * Ensure correct name is set for transaction
+             * (it should be  "[Pending Transaction]")
              * Written by: Matthew Smith 25/03/2019
-             * Approved by:
+             * Approved by: Panagiotis Petridis
              */
             @Test
             void initialName() {
@@ -35,7 +36,7 @@ class WhatNestTransactionTest {
             /*
              * Ensure correct value is set for unknown transaction (null)
              * Written by: Matthew Smith 25/03/2019
-             * Approved by:
+             * Approved by: Panagiotis Petridis
              */
             @Test
             void initialValue() {
@@ -44,9 +45,9 @@ class WhatNestTransactionTest {
             }
 
             /*
-             * Ensure correct time is set for unknown transaction (time of creation)
+             * Ensure correct time is set for unknown transaction
              * Written by: Matthew Smith 25/03/2019
-             * Approved by:
+             * Approved by: Panagiotis Petridis
              */
             @Test
             void initialTime() {
