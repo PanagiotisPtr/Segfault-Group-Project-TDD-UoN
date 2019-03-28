@@ -19,7 +19,7 @@ class WhatNestTransactionTest {
         @Test
         void validInputCheck(){
 
-            BigDecimal num = new BigDecimal(35.99);
+            BigDecimal num = new BigDecimal("35.99");
             WhatNestTransaction transaction = new WhatNestTransaction("hello", num, 4);
             assertEquals("hello", transaction.transactionName());
             assertEquals(num, transaction.transactionValue());
@@ -34,7 +34,7 @@ class WhatNestTransactionTest {
          */
          @Test
          void checkNameLength(){
-             BigDecimal num = new BigDecimal(35.99);
+             BigDecimal num = new BigDecimal("35.99");
              WhatNestTransaction transaction = new WhatNestTransaction("abcdefghijklmnopqrstuvwxyz", num, 4);
              assertEquals("abcdefghijklmnopqrstuvwxy", transaction.transactionName());
          }
@@ -46,7 +46,7 @@ class WhatNestTransactionTest {
         */
         @Test
         void checkNameNotNull(){
-            BigDecimal num = new BigDecimal(35.99);
+            BigDecimal num = new BigDecimal("35.99");
             assertThrows(Exception.class, () -> {new WhatNestTransaction("", num, 4);});
         }
 
@@ -57,7 +57,7 @@ class WhatNestTransactionTest {
         */
         @Test
         void checkValueNotNegative(){
-            BigDecimal num = new BigDecimal(-1);
+            BigDecimal num = new BigDecimal("-1");
             assertThrows(Exception.class, () -> {new WhatNestTransaction("hello", num, 4);});
         }
 
@@ -69,7 +69,7 @@ class WhatNestTransactionTest {
         */
         @Test
         void checkValueNotZero(){
-            BigDecimal num = new BigDecimal(0);
+            BigDecimal num = new BigDecimal("0");
             assertThrows(Exception.class, () -> {new WhatNestTransaction("hello", num, 4);});
         }
 
@@ -80,7 +80,7 @@ class WhatNestTransactionTest {
         */
         @Test
         void checkUnicode(){
-            BigDecimal num = new BigDecimal(35.99);
+            BigDecimal num = new BigDecimal("35.99");
             WhatNestTransaction transaction = new WhatNestTransaction("σφαλμα", num, 4);
             assertEquals("σφαλμα", transaction.transactionName());
         }
@@ -92,7 +92,7 @@ class WhatNestTransactionTest {
         */
         @Test
         void checkLargeValues(){
-            BigDecimal num = new BigDecimal(1000000);
+            BigDecimal num = new BigDecimal("1000000");
             WhatNestTransaction transaction = new WhatNestTransaction("hello", num, 4);
             assertEquals(1000000, transaction.transactionValue());
 
@@ -107,7 +107,7 @@ class WhatNestTransactionTest {
         void checkTimeValues(){
 
             Date before = new Date();
-            BigDecimal num = new BigDecimal(35.99);
+            BigDecimal num = new BigDecimal("35.99");
             WhatNestTransaction transaction = new WhatNestTransaction("hello", num, 4);
             Date after = new Date();
             assertTrue(transaction.transactionTime().compareTo(before) >= 0);
