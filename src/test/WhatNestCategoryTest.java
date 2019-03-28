@@ -12,7 +12,7 @@ class WhatNestCategoryTest {
         /*
          * Test that it accepts floats
          * Written by: Lars Lunde 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void baseCase() {
@@ -23,9 +23,9 @@ class WhatNestCategoryTest {
         }
 
         /*
-         * Test that it accepts floats
+         * Test that it does not accept negatives
          * Written by: Lars Lunde 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void negativeCase() {
@@ -39,7 +39,7 @@ class WhatNestCategoryTest {
         /*
          * Check very large numbers
          * Written by: Lars Lunde 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void largeNumber() {
