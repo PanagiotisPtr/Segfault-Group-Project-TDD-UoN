@@ -6,12 +6,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class WhatNestCategoryTest {
     @Nested
-    class testCategoryBudget {
+    class CategoryBudgetTest {
         /*
-         *Create Category object with name "Example" and budget to 12 and make
-         *sure that getCategoryBudget returns 12
+         * Create Category object with name "Example" and budget to 12 and make
+         * sure that getCategoryBudget returns 12
          * Written by: Lars Lunde 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void testCategoryBudget() {
