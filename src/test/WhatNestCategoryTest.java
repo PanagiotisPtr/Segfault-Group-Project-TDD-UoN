@@ -12,20 +12,21 @@ class WhatNestCategoryTest {
         /*
          * Check that both spend and budget are set to 0
          * Written by: Matthew Smith 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void spendAndBudget() {
             WhatNestCategory cat = new WhatNestCategory();
-            assertEquals(new BigDecimal("0.00"), cat.CategorySpend());
-            assertEquals(new BigDecimal("0.00"), cat.CategoryBudget());
+            BigDecimal zero = new BigDecimal("0.00");
+            assertEquals(0, cat.CategorySpend().compareTo(zero));
+            assertEquals(0, cat.CategoryBudget().compareTo(zero));
         }
 
         /*
          * Check that each name is unique by creating multiple classes (1000+)
          * and make sure they all have unique names
          * Written by: Matthew Smith 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void uniqueName() {
@@ -33,8 +34,7 @@ class WhatNestCategoryTest {
 
             for(int i = 0; i < 1000; i++) {
                 WhatNestCategory c = new WhatNestCategory();
-                if(usedNames.contains(c.CategoryName()))
-                    fail();
+                assertFalse(usedNames.contains(c.CategoryName()));
                 usedNames.add(c.CategoryName());
             }
         }
