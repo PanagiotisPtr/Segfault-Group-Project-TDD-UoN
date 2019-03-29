@@ -405,8 +405,7 @@ class WhatNestTransactionTest {
         }
     }
 
-@Nested
-
+    @Nested
     class SetTransactionName{
 
 
