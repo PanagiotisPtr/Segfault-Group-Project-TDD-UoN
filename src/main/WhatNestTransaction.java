@@ -22,7 +22,12 @@ public class WhatNestTransaction {
 		transactionTime = new Date();
 	}
 	
-	
+	// I ADDED THIS TO RUN THE MAVEN TESTS
+	// DO NOT - DO NOT - DO NOT
+	// PUT THIS IN PRODUCTION
+	public boolean isComplete() {
+		return false;
+	}
 	
 	public String transactionName() {
 		return transactionName;
