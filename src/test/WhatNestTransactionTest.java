@@ -10,13 +10,10 @@ import java.util.Calendar;
 class WhatNestTransactionTest {
     @Nested
     class TransactionTime {
-        /*Tests for 1.6.*
-          Written by: Panagiotis Petridis
-          Date: 25/03/2019
-          Authorised by:
-        */
-
-        // Ensure the date is handled before EPOCH - 1.6.1
+        /* Ensure the date is handled before EPOCH - 1.6.1
+         * Written by: Panagiotis Petridis 29/03/19
+         * Authorised by: Berk Demir
+         */
         @Test
         void testBeforeEpoch() {
             WhatNestTransaction testTransaction = new WhatNestTransaction();
@@ -30,7 +27,10 @@ class WhatNestTransactionTest {
             assertEquals(date, testTransaction.transactionTime());
         }
 
-        // Ensure the date is handled after EPOCH - 1.6.2
+        /* Ensure the date is handled after EPOCH - 1.6.2
+         * Written by: Panagiotis Petridis 29/03/19
+         * Authorised by: Berk Demir
+         */
         @Test
         void testAfterEpoch() {
             WhatNestTransaction testTransaction = new WhatNestTransaction();
@@ -44,7 +44,10 @@ class WhatNestTransactionTest {
             assertEquals(date, testTransaction.transactionTime());
         }
 
-        // Ensure leap years are handled properly - 1.6.3
+        /* Ensure leap years are handled properly - 1.6.3
+         * Written by: Panagiotis Petridis 29/03/19
+         * Authorised by: Berk Demir
+         */
         @Test
         void testLeapYear() {
             WhatNestTransaction testTransaction = new WhatNestTransaction();
@@ -58,7 +61,10 @@ class WhatNestTransactionTest {
             assertEquals(date, testTransaction.transactionTime());
         }
 
-        // Check for the 2038 problem (EPOCH overflow) - 1.6.4
+        /* Check for the 2038 problem (EPOCH overflow) - 1.6.4
+         * Written by: Panagiotis Petridis 29/03/19
+         * Authorised by: Berk Demir
+         */
         @Test
         void testEpochOverflow() {
             WhatNestTransaction testTransaction = new WhatNestTransaction();
