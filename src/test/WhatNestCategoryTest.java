@@ -1,6 +1,5 @@
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import sun.reflect.annotation.ExceptionProxy;
 
 import java.math.BigDecimal;
 
@@ -12,7 +11,7 @@ class WhatNestCategoryTest {
         /*
          * Test that it accepts BigDecimal type
          * Written by: Lars Lunde 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void baseBigDecimal() {
@@ -28,7 +27,7 @@ class WhatNestCategoryTest {
         /*
          * Test with integer, set default budget to 100
          * Written by: Lars Lunde 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void testInt() {
@@ -44,7 +43,7 @@ class WhatNestCategoryTest {
         /*
          * Test with negative numbers, set default budget to 100
          * Written by: Lars Lunde 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void negativeNumb() {
@@ -61,7 +60,7 @@ class WhatNestCategoryTest {
          * Test with large positive number, set default budget to
          * 10000000000000.00
          * Written by: Lars Lunde 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void largeNum() {
@@ -79,7 +78,7 @@ class WhatNestCategoryTest {
          * "Example", Budget 400 and spend 200, when given an expense bigger
          * than the budget (600) sets the budget to negative number.
          * Written by: Lars Lunde 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void overBudget() {
@@ -87,9 +86,9 @@ class WhatNestCategoryTest {
             BigDecimal bgd = new BigDecimal("200.00");
             cat.setCategoryBudget(bgd);
             BigDecimal big = new BigDecimal("400.00");
-            assertThrows(Exception.class, () -> {
-                cat.addExpense(big);
-            });
+            cat.addExpense(big);
+            BigDecimal result = bgd.subtract(big);
+            assertEquals(0, cat.getRemainingBudget().compareTo(result));
         }
     }
 }
