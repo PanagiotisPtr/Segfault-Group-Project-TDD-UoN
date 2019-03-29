@@ -12,7 +12,7 @@ class WhatNestTransactionTest {
         /*
          * Test complete name and complete value
          * Written by: Berk Demir 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void allComplete(){
@@ -25,7 +25,7 @@ class WhatNestTransactionTest {
         /*
          * Test complete name and incomplete value
          * Written by: Berk Demir 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void nameComplete(){
@@ -36,7 +36,7 @@ class WhatNestTransactionTest {
         /*
          * Test incomplete name and complete value
          * Written by: Berk Demir 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void valueComplete(){
@@ -47,7 +47,7 @@ class WhatNestTransactionTest {
         /*
          * Test incomplete name and incomplete value
          * Written by: Berk Demir 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void nothingComplete() {
