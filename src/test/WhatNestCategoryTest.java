@@ -12,10 +12,10 @@ class WhatNestCategoryTest {
         /*
          * Check that it meets specification
          * Written by: Berk Demir 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
-        void checkCreate(){
+        void checkCreate() {
             WhatNestCategory cat = new WhatNestCategory("Example");
             assertEquals("Example", cat.CategoryName());
         }
@@ -23,10 +23,10 @@ class WhatNestCategoryTest {
         /*
          * Create 2 classes with same name make sure it gives error
          * Written by: Berk Demir 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
-        void checkDuplicate(){
+        void checkDuplicate() {
             WhatNestCategory dup = new WhatNestCategory("Example");
             assertThrows(Exception.class, ()->{
                 WhatNestCategory dup2 = new WhatNestCategory("Example");
@@ -36,10 +36,10 @@ class WhatNestCategoryTest {
         /*
          * Make sure that class has spend and budget to 0 and not an arbitrary value
          * Written by: Berk Demir 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
-        void checkZeros(){
+        void checkZeros() {
             WhatNestCategory def = new WhatNestCategory("Example");
             BigDecimal zero = new BigDecimal(0);
             assertEquals(0, def.CategorySpend().compareTo(zero));
@@ -48,16 +48,17 @@ class WhatNestCategoryTest {
         /*
          * Check Unicode characters
          * Written by: Berk Demir 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
-        void checkUnicode(){
+        @Test
+        void checkUnicode() {
             WhatNestCategory uni = new WhatNestCategory("σφαλμα");
             assertEquals("σφαλμα", uni.CategoryName());
         }
         /*
          * Check that default constructor handles long names
          * Written by: Berk Demir 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void checkLongName() {
@@ -69,16 +70,14 @@ class WhatNestCategoryTest {
         /*
          * Check that it handles empty names
          * Written by: Berk Demir 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
-        void checkBlank(){
+        void checkBlank() {
             assertThrows(Exception.class, ()->{
                 WhatNestCategory blank = new WhatNestCategory("");
             });
         }
-
-
     }
 
 }
