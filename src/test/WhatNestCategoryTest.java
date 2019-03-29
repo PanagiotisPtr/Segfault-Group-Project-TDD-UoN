@@ -12,7 +12,7 @@ class WhatNestCategoryTest {
         /*
          * Checks that valid inputs give correct output
          * Written by: Tara Dilley 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void validValuesCheck() {
@@ -25,13 +25,13 @@ class WhatNestCategoryTest {
 
             BigDecimal result = num1.subtract(num2);
 
-            assertEquals(result, cat.CategorySpend());
+            assertEquals(0, cat.CategorySpend().compareTo(result));
         }
 
         /*
          * Checks 0 is not subtracted
          * Written by: Tara Dilley 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void noZero() {
@@ -44,7 +44,7 @@ class WhatNestCategoryTest {
         /*
          * Checks that negative numbers are not accepted
          * Written by: Tara Dilley 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void noNegative() {
@@ -57,7 +57,7 @@ class WhatNestCategoryTest {
         /*
          * Checks that large positive numbers are accepted
          * Written by: Tara Dilley 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void largePositive() {
@@ -74,7 +74,7 @@ class WhatNestCategoryTest {
         /*
          * Test with expense larger than spend
          * Written by: Tara Dilley 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void expenseLargerThanSpend() {
@@ -94,11 +94,10 @@ class WhatNestCategoryTest {
 
     @Nested
     class getRemainingBudget {
-
         /*
          * Test that correct remaining budget is found
          * Written by: Tara Dilley 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void getRemainingBudgetTest() {
@@ -121,7 +120,7 @@ class WhatNestCategoryTest {
         /*
          * Checks output when values are all 0
          * Written by: Tara Dilley 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void checkZero() {
@@ -131,13 +130,13 @@ class WhatNestCategoryTest {
             cat.setCategoryBudget(num);
             cat.addExpense(num);
 
-            assertEquals(0, cat.toString().compareTo("[Example] (£0.00) - Est. £0.00 (£0.00 remaining)"));
+            assertEquals("[Example] (£0.00) - Est. £0.00 (£0.00 remaining)", cat.toString());
         }
 
         /*
          * Checks a valid non-zero test case
          * Written by: Tara Dilley 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void checkValidCase() {
@@ -149,13 +148,13 @@ class WhatNestCategoryTest {
             BigDecimal spend = new BigDecimal("200");
             cat.addExpense(spend);
 
-            assertEquals(0, cat.toString().compareTo("[Example] (£400.00) - Est. £200.00 (£200.00 remaining)"));
+            assertEquals("[Example] (£400.00) - Est. £200.00 (£200.00 remaining)", cat.toString());
         }
 
         /*
          * Checks that values are correct when user has overspent
          * Written by: Tara Dilley 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void checkOverspentCase() {
@@ -167,7 +166,7 @@ class WhatNestCategoryTest {
             BigDecimal spend = new BigDecimal("500");
             cat.addExpense(spend);
 
-            assertEquals(0, cat.toString().compareTo("[Example] (£400.00) - Est. £500.00 (£100.00 overspent)"));
+            assertEquals("[Example] (£400.00) - Est. £500.00 (£100.00 overspent)", cat.toString());
         }
 
 
