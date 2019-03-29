@@ -11,7 +11,7 @@ class WhatNestTransactionTest {
         /*
          * Checks for a valid parameter of type BigDecimal
          * Written by: Berk Demir 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void checkValidParameter(){
@@ -22,7 +22,7 @@ class WhatNestTransactionTest {
         /*
          * Checks that negative parameter values are not allowed
          * Written by: Berk Demir 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void checkNegative(){
@@ -34,7 +34,7 @@ class WhatNestTransactionTest {
         /*
          * Checks that parameter value is greater than zero
          * Written by: Berk Demir 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void checkZero(){
@@ -44,9 +44,9 @@ class WhatNestTransactionTest {
             });
         }
         /*
-         * Checks that transaction value has not already been set
+         * Checks that Transaction value has not already been set
          * Written by: Berk Demir 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void checkDuplicate(){
@@ -59,7 +59,7 @@ class WhatNestTransactionTest {
         /*
          * Checks for very large transaction values entered
          * Written by: Berk Demir 28/03/2019
-         * Approved by:
+         * Approved by: Panagiotis Petridis
          */
         @Test
         void checkSize(){
