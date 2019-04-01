@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @DisplayName("2.07 - WhatNestCategoryTest.MainConstructor")
-class MainConstructor{
+class MainConstructor {
     /*
      * Check that it meets specification
      * Written by: Berk Demir 28/03/2019
@@ -31,7 +31,7 @@ class MainConstructor{
     @DisplayName("2.7.2 - Create 2 classes with same name make sure it gives error")
     void checkDuplicate() {
         WhatNestCategory dup = new WhatNestCategory("Example");
-        assertThrows(Exception.class, ()->{
+        assertThrows(Exception.class, () -> {
             WhatNestCategory dup2 = new WhatNestCategory("Example");
         });
     }
@@ -67,7 +67,7 @@ class MainConstructor{
     @Test
     @DisplayName("2.7.5 - Check that default constructor handles long names")
     void checkLongName() {
-        assertThrows(Exception.class, ()->{
+        assertThrows(Exception.class, () -> {
             WhatNestCategory lng = new WhatNestCategory("AVeryVeryVeryLongLongLongName");
         });
     }
@@ -79,7 +79,7 @@ class MainConstructor{
     @Test
     @DisplayName("2.7.6 - Check that it handles empty names")
     void checkBlank() {
-        assertThrows(Exception.class, ()->{
+        assertThrows(Exception.class, () -> {
             WhatNestCategory blank = new WhatNestCategory("");
         });
     }

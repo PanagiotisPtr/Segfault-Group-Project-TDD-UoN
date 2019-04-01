@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("1.10 - WhatNestTransactionTest.IsComplete")
-class IsComplete{
+class IsComplete {
     /*
      * Test complete name and complete value
      * Written by: Berk Demir 28/03/2019
@@ -18,7 +18,7 @@ class IsComplete{
      */
     @Test
     @DisplayName("1.10.1 - Test complete name and complete value")
-    void allComplete(){
+    void allComplete() {
         WhatNestTransaction t = new WhatNestTransaction();
         t.setTransactionName("Good");
         t.setTransactionValue(new BigDecimal(10));
@@ -31,7 +31,7 @@ class IsComplete{
      */
     @Test
     @DisplayName("1.10.2 - Test complete name and incomplete value")
-    void nameComplete(){
+    void nameComplete() {
         WhatNestTransaction t = new WhatNestTransaction();
         t.setTransactionName("Good");
         assertFalse(t.isComplete());
@@ -43,7 +43,7 @@ class IsComplete{
      */
     @Test
     @DisplayName("1.10.3 - Test incomplete name and complete value")
-    void valueComplete(){
+    void valueComplete() {
         WhatNestTransaction t = new WhatNestTransaction();
         t.setTransactionValue(new BigDecimal(10));
         assertFalse(t.isComplete());

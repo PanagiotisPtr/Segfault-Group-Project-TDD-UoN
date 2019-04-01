@@ -34,7 +34,7 @@ class ToString {
     @DisplayName("1.11.2 - Checks transactionValue is not missing")
     void checkParameters1() {
         assertThrows(Exception.class, () -> {
-            new WhatNestTransaction("Spending", null , 4);
+            new WhatNestTransaction("Spending", null, 4);
         });
     }
     /*
@@ -47,7 +47,7 @@ class ToString {
     void checkParameters2() {
         BigDecimal num = new BigDecimal("39.99");
         assertThrows(Exception.class, () -> {
-            new WhatNestTransaction(null, num , 4);
+            new WhatNestTransaction(null, num, 4);
         });
     }
     /*
@@ -59,7 +59,7 @@ class ToString {
     @DisplayName("1.11.4 - Checks transactionName and transactionValue are not missing")
     void checkParameters3() {
         assertThrows(Exception.class, () -> {
-            new WhatNestTransaction(null, null , 4);
+            new WhatNestTransaction(null, null, 4);
         });
     }
 }

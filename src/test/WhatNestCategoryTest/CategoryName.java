@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DisplayName("2.01 - WhatNestCategoryTest.CategoryName")
-class CategoryName{
+class CategoryName {
     /* Create Category object with name "Example" and make sure it returns 
      * the correct category name
      * Written by: Lars Lunde
@@ -16,7 +16,7 @@ class CategoryName{
      */
     @Test
     @DisplayName("2.1.1 - the correct category name")
-    void testCategoryName(){
+    void testCategoryName() {
         WhatNestCategory cat = new WhatNestCategory("Example");
         assertEquals("Example", cat.CategoryName());
     }

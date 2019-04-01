@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @DisplayName("1.08 - WhatNestTransactionTest.SetTransactionValue")
-class SetTransactionValue{
+class SetTransactionValue {
     /*
      * Checks for a valid parameter of type BigDecimal
      * Written by: Berk Demir 28/03/2019
@@ -18,7 +18,7 @@ class SetTransactionValue{
      */
     @Test
     @DisplayName("1.8.1 - Checks for a valid parameter of type BigDecimal")
-    void checkValidParameter(){
+    void checkValidParameter() {
         WhatNestTransaction bd = new WhatNestTransaction();
         bd.setTransactionValue(new BigDecimal(3.99));
         assertEquals(0, bd.transactionValue().compareTo(new BigDecimal(3.99)));
@@ -30,9 +30,9 @@ class SetTransactionValue{
      */
     @Test
     @DisplayName("1.8.2 - Checks that negative parameter values are not allowed")
-    void checkNegative(){
+    void checkNegative() {
         WhatNestTransaction ng = new WhatNestTransaction();
-        assertThrows(Exception.class, ()->{
+        assertThrows(Exception.class, () -> {
             ng.setTransactionValue(new BigDecimal(-4.3));
         });
     }
@@ -43,9 +43,9 @@ class SetTransactionValue{
      */
     @Test
     @DisplayName("1.8.3 - Checks that parameter value is greater than zero")
-    void checkZero(){
+    void checkZero() {
         WhatNestTransaction z = new WhatNestTransaction();
-        assertThrows(Exception.class, ()->{
+        assertThrows(Exception.class, () -> {
             z.setTransactionValue(new BigDecimal(0));
         });
     }
@@ -56,10 +56,10 @@ class SetTransactionValue{
      */
     @Test
     @DisplayName("1.8.4 - Checks that Transaction value has not already been set")
-    void checkDuplicate(){
+    void checkDuplicate() {
         WhatNestTransaction d = new WhatNestTransaction();
         d.setTransactionValue(new BigDecimal(3));
-        assertThrows(Exception.class, ()->{
+        assertThrows(Exception.class, () -> {
             d.setTransactionValue(new BigDecimal(2));
         });
     }
@@ -70,9 +70,9 @@ class SetTransactionValue{
      */
     @Test
     @DisplayName("1.8.5 - Checks for very large transaction values entered")
-    void checkSize(){
+    void checkSize() {
         WhatNestTransaction size = new WhatNestTransaction();
-        assertThrows(Exception.class,()->{
+        assertThrows(Exception.class,() -> {
             size.setTransactionValue(new BigDecimal("254387435084527052"));
         });
     }

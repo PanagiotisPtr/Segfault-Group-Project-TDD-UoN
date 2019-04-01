@@ -35,7 +35,7 @@ class DefaultConstructor {
     @DisplayName("2.6.2 - and make sure they all have unique names")
     void uniqueName() {
         HashSet<String> usedNames = new HashSet<>();
-        for(int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 1000; i++) {
             WhatNestCategory c = new WhatNestCategory();
             assertFalse(usedNames.contains(c.CategoryName()));
             usedNames.add(c.CategoryName());

@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @DisplayName("1.07 - WhatNestTransactionTest.SetTransactionName")
-class SetTransactionName{
+class SetTransactionName {
     /*
      * Checks for valid string parameter
      * Written by: Berk Demir 28/03/2019
@@ -16,7 +16,7 @@ class SetTransactionName{
      */
     @Test
     @DisplayName("1.7.1 - Checks for valid string parameter")
-    void checkString(){
+    void checkString() {
         WhatNestTransaction n = new WhatNestTransaction();
         n.setTransactionName("hello");
         assertEquals("hello", n.transactionName());
@@ -28,7 +28,7 @@ class SetTransactionName{
      */
     @Test
     @DisplayName("1.7.2 - Checks that method will truncate long strings")
-    void checkLength(){
+    void checkLength() {
         WhatNestTransaction l = new WhatNestTransaction();
         l.setTransactionName("abcdefghijklmonpqrstuvwxyz");
         assertEquals("abcdefghijklmonpqrstuvwxy", l.transactionName());
@@ -40,10 +40,10 @@ class SetTransactionName{
      */
     @Test
     @DisplayName("1.7.3 - Checks that Transaction Name hasn't already been set")
-    void checkDuplicate(){
+    void checkDuplicate() {
         WhatNestTransaction d = new WhatNestTransaction();
         d.setTransactionName("hello");
-        assertThrows(Exception.class, ()->{
+        assertThrows(Exception.class, () -> {
             d.setTransactionName("hello");
         });
     }
@@ -54,7 +54,7 @@ class SetTransactionName{
      */
     @Test
     @DisplayName("1.7.4 - Checks that reserved name is not used")
-    void checkReserve(){
+    void checkReserve() {
         WhatNestTransaction r = new WhatNestTransaction();
         assertThrows(Exception.class, () -> {
             r.setTransactionName("[Pending Transaction]");

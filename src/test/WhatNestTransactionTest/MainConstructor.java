@@ -10,7 +10,7 @@ import java.util.Date;
 import static org.junit.jupiter.api.Assertions.*;
 
 @DisplayName("1.02 - WhatNestTransactionTest.MainConstructor")
-class MainConstructor{
+class MainConstructor {
     /*
      * Checks that it works with completely correct values
      * Written by: Tara Dilley 27/03/2019
@@ -60,7 +60,7 @@ class MainConstructor{
      */
     @Test
     @DisplayName("1.2.4 - Checks that Transaction value is not less than 0")
-    void checkValueNotNegative(){
+    void checkValueNotNegative() {
         BigDecimal num = new BigDecimal("-1");
         assertThrows(Exception.class, () -> {
             new WhatNestTransaction("hello", num, 4);

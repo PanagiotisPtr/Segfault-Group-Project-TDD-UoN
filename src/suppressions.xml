@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE suppressions PUBLIC
+        "-//Checkstyle//DTD SuppressionFilter Configuration 1.2//EN"
+        "https://checkstyle.org/dtds/suppressions_1_2.dtd">
+
+<suppressions>
+    <suppress files="main/WhatNest/WhatNestApp.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="main/WhatNest/WhatNestCategory.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="main/WhatNest/WhatNestTransaction.java" checks="[a-zA-Z0-9]*"/>
+</suppressions>
