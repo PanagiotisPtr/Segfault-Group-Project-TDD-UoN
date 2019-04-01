@@ -1,4 +1,6 @@
 import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -9,48 +11,49 @@ import java.util.Calendar;
 class WhatNestTransactionTest {
     @Nested
     class DefaultConstructor {
-
         /*
-            * Ensure correct category is set for unknown transaction (0)
-            * Written by: Matthew Smith 25/03/2019
-            * Approved by: Panagiotis Petridis
-            */
+         * Ensure correct category is set for unknown transaction (0)
+         * Written by: Matthew Smith 25/03/2019
+         * Approved by: Panagiotis Petridis
+         */
         @Test
+        @DisplayName("Ensure correct category is set for unknown transaction (0) - 1.1.1")
         void initialCategory() {
             WhatNestTransaction transaction = new WhatNestTransaction();
             assertEquals(0,transaction.transactionCategory());
         }
 
         /*
-            * Ensure correct name is set for transaction
-            * (it should be  "[Pending Transaction]")
-            * Written by: Matthew Smith 25/03/2019
-            * Approved by: Panagiotis Petridis
-            */
+         * Ensure correct name is set for transaction
+         * Written by: Matthew Smith 25/03/2019
+         * Approved by: Panagiotis Petridis
+         */
         @Test
+        @DisplayName("Ensure correct name is set for transaction - 1.1.2")
         void initialName() {
             WhatNestTransaction transaction = new WhatNestTransaction();
             assertEquals("[Pending transaction]",
                     transaction.transactionName());
         }
-
         /*
-            * Ensure correct value is set for unknown transaction (null)
-            * Written by: Matthew Smith 25/03/2019
-            * Approved by: Panagiotis Petridis
-            */
+         * Ensure correct value is set for unknown transaction (null)
+         * Written by: Matthew Smith 25/03/2019
+         * Approved by: Panagiotis Petridis
+         */
         @Test
+        @DisplayName("Ensure correct value is set for unknown transaction (null) - 1.1.3")
         void initialValue() {
             WhatNestTransaction transaction = new WhatNestTransaction();
             assertEquals(null,transaction.transactionValue());
         }
 
         /*
-            * Ensure correct time is set for unknown transaction
-            * Written by: Matthew Smith 25/03/2019
-            * Approved by: Panagiotis Petridis
-            */
+         * Ensure correct time is set for unknown transaction
+         * Written by: Matthew Smith 25/03/2019
+         * Approved by: Panagiotis Petridis
+         */
         @Test
+        @DisplayName("Ensure correct time is set for unknown transaction - 1.1.4")
         void initialTime() {
             Date before = new Date();
             WhatNestTransaction transaction = new WhatNestTransaction();
@@ -60,7 +63,7 @@ class WhatNestTransactionTest {
                     && transaction.transactionTime().compareTo(after) <= 0);
         }
     }
-    
+
     @Nested
     class MainConstructor{
 
@@ -70,10 +73,11 @@ class WhatNestTransactionTest {
          * Approved by: Panagiotis Petridis
          */
         @Test
+        @DisplayName("Checks that it works with completely correct values - 1.2.1")
         void validInputCheck() {
             BigDecimal num = new BigDecimal("35.99");
-            WhatNestTransaction transaction = 
-                new WhatNestTransaction("hello", num, 4);
+            WhatNestTransaction transaction =
+                    new WhatNestTransaction("hello", num, 4);
             assertEquals("hello", transaction.transactionName());
             assertEquals(num, transaction.transactionValue());
             assertEquals(4, transaction.transactionCategory());
@@ -85,20 +89,22 @@ class WhatNestTransactionTest {
          * Approved by: Panagiotis Petridis
          */
         @Test
+        @DisplayName("Checks that Transaction name is not too long - 1.2.2")
         void checkNameLength() {
             BigDecimal num = new BigDecimal("35.99");
             WhatNestTransaction transaction =
-                new WhatNestTransaction("abcdefghijklmnopqrstuvwxyz", num, 4);
-            assertEquals("abcdefghijklmnopqrstuvwxy", 
-                         transaction.transactionName());
+                    new WhatNestTransaction("abcdefghijklmnopqrstuvwxyz", num, 4);
+            assertEquals("abcdefghijklmnopqrstuvwxy",
+                    transaction.transactionName());
         }
 
         /*
          * Checks that Transaction name has been entered
          * Written by Tara Dilley 27/03/2019
          * Approved by: Panagiotis Petridis
-        */
+         */
         @Test
+        @DisplayName("Checks that Transaction name has been entered - 1.2.3")
         void checkNameNotNull() {
             BigDecimal num = new BigDecimal("35.99");
             assertThrows(Exception.class, () -> {
@@ -110,8 +116,9 @@ class WhatNestTransactionTest {
          * Checks that Transaction value is not less than 0
          * Written by Tara Dilley 27/03/2019
          * Approved by: Panagiotis Petridis
-        */
+         */
         @Test
+        @DisplayName("Checks that Transaction value is not less than 0 - 1.2.4")
         void checkValueNotNegative(){
             BigDecimal num = new BigDecimal("-1");
             assertThrows(Exception.class, () -> {
@@ -123,8 +130,9 @@ class WhatNestTransactionTest {
          * Checks that Transaction value is greater than 0
          * Written by Tara Dilley 27/03/2019
          * Approved by: Panagiotis Petridis
-        */
+         */
         @Test
+        @DisplayName("Checks that Transaction value is greater than 0 - 1.2.5")
         void checkValueNotZero() {
             BigDecimal num = new BigDecimal("0");
             assertThrows(Exception.class, () -> {
@@ -136,12 +144,13 @@ class WhatNestTransactionTest {
          * Checks that Transaction Name can be in unicode
          * Written by Tara Dilley 27/03/2019
          * Approved by: Panagiotis Petridis
-        */
+         */
         @Test
+        @DisplayName("Checks that Transaction Name can be in unicode - 1.2.6")
         void checkUnicode() {
             BigDecimal num = new BigDecimal("35.99");
-            WhatNestTransaction transaction = 
-                new WhatNestTransaction("σφαλμα", num, 4);
+            WhatNestTransaction transaction =
+                    new WhatNestTransaction("σφαλμα", num, 4);
             assertEquals("σφαλμα", transaction.transactionName());
         }
 
@@ -149,12 +158,13 @@ class WhatNestTransactionTest {
          * Check for very large Transaction values entered
          * Written by Tara Dilley 27/03/2019
          * Approved by: Panagiotis Petridis
-        */
+         */
         @Test
+        @DisplayName("Check for very large Transaction values entered - 1.2.7")
         void checkLargeValues() {
             BigDecimal num = new BigDecimal("1000000");
             WhatNestTransaction transaction =
-                new WhatNestTransaction("hello", num, 4);
+                    new WhatNestTransaction("hello", num, 4);
             assertEquals(0, transaction.transactionValue().compareTo(num));
 
         }
@@ -163,8 +173,9 @@ class WhatNestTransactionTest {
          * Check for correct time value
          * Written by Tara Dilley 27/03/2019
          * Approved by: Panagiotis Petridis
-        */
+         */
         @Test
+        @DisplayName("Check for correct time value - 1.2.8")
         void checkTimeValues() {
             Date before = new Date();
             BigDecimal num = new BigDecimal("35.99");
@@ -182,6 +193,7 @@ class WhatNestTransactionTest {
          * Authorised by: Berk Demir
          */
         @Test
+        @DisplayName("Test normal strings - 1.3.1")
         void normalStringConstructor() {
             // Test with constructor
             WhatNestTransaction testTransaction =
@@ -197,6 +209,7 @@ class WhatNestTransactionTest {
          * Authorised by: Berk Demir
          */
         @Test
+        @DisplayName("Test unicode strings - 1.3.2")
         void unicodeStringConstructor() {
             // Test with constructor
             WhatNestTransaction testTransaction =
@@ -216,6 +229,7 @@ class WhatNestTransactionTest {
          * Authorised by: Tara Dilley
          */
         @Test
+        @DisplayName("Ensure that the value can handle very small numbers - 1.4.1")
         void testSmallNumbersConstructor() {
             WhatNestTransaction testTransaction =
                     new WhatNestTransaction("test", new BigDecimal("0.01"), 0);
@@ -233,6 +247,7 @@ class WhatNestTransactionTest {
          * Authorised by: Tara Dilley
          */
         @Test
+        @DisplayName("Check that NULL is handled properly - 1.4.2")
         void testNullNumbersConstructor() {
             // Test with constructor
             WhatNestTransaction testTransaction =
@@ -249,6 +264,7 @@ class WhatNestTransactionTest {
          * Authorised by: Tara Dilley
          */
         @Test
+        @DisplayName("Ensure that the value can handle huge numbers - 1.4.3")
         void testHugeNumbersConstructor() {
             // Test with constructor
             WhatNestTransaction testTransaction =
@@ -268,6 +284,7 @@ class WhatNestTransactionTest {
          * Authorised by: Tara Dilley
          */
         @Test
+        @DisplayName("Check that the value can handle normal numbers - 1.4.4")
         void testNormalNumbersConstructor() {
             // Test with constructor
             WhatNestTransaction testTransaction =
@@ -290,6 +307,7 @@ class WhatNestTransactionTest {
          * Authorised by: Lars Lunde
          */
         @Test
+        @DisplayName("Check that the value can handle zero - 1.5.1")
         void testZeroCategoryConstructor() {
             // Test with constructor
             WhatNestTransaction testTransaction =
@@ -306,6 +324,7 @@ class WhatNestTransactionTest {
          * Authorised by: Lars Lunde
          */
         @Test
+        @DisplayName("Check that the value can handle negative numbers - 1.5.2")
         void testNegativeCategoryConstructor() {
             // Test with constructor
             WhatNestTransaction testTransaction =
@@ -322,6 +341,7 @@ class WhatNestTransactionTest {
          * Authorised by: Lars Lunde
          */
         @Test
+        @DisplayName("Check that the value can handle positive numbes - 1.5.3")
         void testPositiveCategoryConstructor() {
             // Test with constructor
             WhatNestTransaction testTransaction =
@@ -341,6 +361,7 @@ class WhatNestTransactionTest {
          * Authorised by: Berk Demir
          */
         @Test
+        @DisplayName("Ensure the date is handled before EPOCH - 1.6.1")
         void testBeforeEpoch() {
             WhatNestTransaction testTransaction = new WhatNestTransaction();
 
@@ -358,6 +379,7 @@ class WhatNestTransactionTest {
          * Authorised by: Berk Demir
          */
         @Test
+        @DisplayName("Ensure the date is handled after EPOCH - 1.6.2")
         void testAfterEpoch() {
             WhatNestTransaction testTransaction = new WhatNestTransaction();
 
@@ -375,6 +397,7 @@ class WhatNestTransactionTest {
          * Authorised by: Berk Demir
          */
         @Test
+        @DisplayName("Ensure leap years are handled properly - 1.6.3")
         void testLeapYear() {
             WhatNestTransaction testTransaction = new WhatNestTransaction();
 
@@ -392,6 +415,7 @@ class WhatNestTransactionTest {
          * Authorised by: Berk Demir
          */
         @Test
+        @DisplayName("Check for the 2038 problem (EPOCH overflow) - 1.6.4")
         void testEpochOverflow() {
             WhatNestTransaction testTransaction = new WhatNestTransaction();
 
@@ -415,6 +439,7 @@ class WhatNestTransactionTest {
          * Approved by:
          */
         @Test
+        @DisplayName("Checks for valid string parameter - 1.7.1")
         void checkString(){
             WhatNestTransaction n = new WhatNestTransaction();
             n.setTransactionName("hello");
@@ -426,6 +451,7 @@ class WhatNestTransactionTest {
          * Approved by:
          */
         @Test
+        @DisplayName("Checks that method will truncate long strings - 1.7.2")
         void checkLength(){
             WhatNestTransaction l = new WhatNestTransaction();
             l.setTransactionName("abcdefghijklmonpqrstuvwxyz");
@@ -438,6 +464,7 @@ class WhatNestTransactionTest {
          * Approved by:
          */
         @Test
+        @DisplayName("Checks that Transaction Name hasn't already been set - 1.7.3")
         void checkDuplicate(){
             WhatNestTransaction d = new WhatNestTransaction();
             d.setTransactionName("hello");
@@ -452,6 +479,7 @@ class WhatNestTransactionTest {
          * Approved by:
          */
         @Test
+        @DisplayName("Checks that reserved name is not used - 1.7.4")
         void checkReserve(){
             WhatNestTransaction r = new WhatNestTransaction();
             assertThrows(Exception.class, () -> {
@@ -469,6 +497,7 @@ class WhatNestTransactionTest {
          * Approved by: Panagiotis Petridis
          */
         @Test
+        @DisplayName("Checks for a valid parameter of type BigDecimal - 1.8.1")
         void checkValidParameter(){
             WhatNestTransaction bd = new WhatNestTransaction();
             bd.setTransactionValue(new BigDecimal(3.99));
@@ -480,6 +509,7 @@ class WhatNestTransactionTest {
          * Approved by: Panagiotis Petridis
          */
         @Test
+        @DisplayName("Checks that negative parameter values are not allowed - 1.8.2")
         void checkNegative(){
             WhatNestTransaction ng = new WhatNestTransaction();
             assertThrows(Exception.class, ()->{
@@ -492,6 +522,7 @@ class WhatNestTransactionTest {
          * Approved by: Panagiotis Petridis
          */
         @Test
+        @DisplayName("Checks that parameter value is greater than zero - 1.8.3")
         void checkZero(){
             WhatNestTransaction z = new WhatNestTransaction();
             assertThrows(Exception.class, ()->{
@@ -504,6 +535,7 @@ class WhatNestTransactionTest {
          * Approved by: Panagiotis Petridis
          */
         @Test
+        @DisplayName("Checks that Transaction value has not already been set - 1.8.4")
         void checkDuplicate(){
             WhatNestTransaction d = new WhatNestTransaction();
             d.setTransactionValue(new BigDecimal(3));
@@ -517,6 +549,7 @@ class WhatNestTransactionTest {
          * Approved by: Panagiotis Petridis
          */
         @Test
+        @DisplayName("Checks for very large transaction values entered - 1.8.5")
         void checkSize(){
             WhatNestTransaction size = new WhatNestTransaction();
             assertThrows(Exception.class,()->{
@@ -534,6 +567,7 @@ class WhatNestTransactionTest {
          * Approved by: Panagiotis Petridis
          */
         @Test
+        @DisplayName("Checks for valid transaction category parameter value entered - 1.9.1")
         void checkValid(){
             WhatNestTransaction v = new WhatNestTransaction();
             v.setTransactionCategory(7);
@@ -545,6 +579,7 @@ class WhatNestTransactionTest {
          * Approved by: Panagiotis Petridis
          */
         @Test
+        @DisplayName("Checks that value entered corresponds to an available category (non-negative - 1.9.2")
         void checkNegative(){
             WhatNestTransaction n = new WhatNestTransaction();
             assertThrows(Exception.class, ()->{
@@ -557,6 +592,7 @@ class WhatNestTransactionTest {
          * Approved by: Panagiotis Petridis
          */
         @Test
+        @DisplayName("Checks that value entered corresponds to an available category (non-zero) - 1.9.3")
         void checkZero(){
             WhatNestTransaction z = new WhatNestTransaction();
             assertThrows(Exception.class, ()->{
@@ -570,11 +606,12 @@ class WhatNestTransactionTest {
          */
 
         /*
-        * Note: This assumes that the maximum number of categories
-        * is Integer.MAX_VALUE . We might need a variable that keeps
-        * track of the number of categories.
-        * */
+         * Note: This assumes that the maximum number of categories
+         * is Integer.MAX_VALUE . We might need a variable that keeps
+         * track of the number of categories.
+         * */
         @Test
+        @DisplayName("Checks that value entered corresponds to an available category (not greater than number of available categories) - 1.9.4")
         void checkAvailable(){
             WhatNestTransaction a = new WhatNestTransaction();
             assertThrows(Exception.class, ()->{
@@ -592,6 +629,7 @@ class WhatNestTransactionTest {
          * Approved by: Panagiotis Petridis
          */
         @Test
+        @DisplayName("Test complete name and complete value - 1.10.1")
         void allComplete(){
             WhatNestTransaction t = new WhatNestTransaction();
             t.setTransactionName("Good");
@@ -605,6 +643,7 @@ class WhatNestTransactionTest {
          * Approved by: Panagiotis Petridis
          */
         @Test
+        @DisplayName("Test complete name and incomplete value - 1.10.2")
         void nameComplete(){
             WhatNestTransaction t = new WhatNestTransaction();
             t.setTransactionName("Good");
@@ -616,6 +655,7 @@ class WhatNestTransactionTest {
          * Approved by: Panagiotis Petridis
          */
         @Test
+        @DisplayName("Test incomplete name and complete value - 1.10.3")
         void valueComplete(){
             WhatNestTransaction t = new WhatNestTransaction();
             t.setTransactionValue(new BigDecimal(10));
@@ -627,6 +667,7 @@ class WhatNestTransactionTest {
          * Approved by: Panagiotis Petridis
          */
         @Test
+        @DisplayName("Test incomplete name and incomplete value - 1.10.4")
         void nothingComplete() {
             WhatNestTransaction t = new WhatNestTransaction();
             assertFalse(t.isComplete());
@@ -643,6 +684,7 @@ class WhatNestTransactionTest {
          */
 
         @Test
+        @DisplayName("Checks for a clear representation (valid transaction date, name and value) - 1.11.1")
         void clearRepresentation() {
             Date before = new Date();
             BigDecimal num = new BigDecimal("39.99");
@@ -656,6 +698,7 @@ class WhatNestTransactionTest {
          * Approved by: Panagiotis Petridis
          */
         @Test
+        @DisplayName("Checks transactionValue is not missing - 1.11.2")
         void checkParameters1() {
             assertThrows(Exception.class, () -> {
                 new WhatNestTransaction("Spending", null , 4);
@@ -668,6 +711,7 @@ class WhatNestTransactionTest {
          * Approved by: Panagiotis Petridis
          */
         @Test
+        @DisplayName("Checks transactionName is not missing - 1.11.3")
         void checkParameters2() {
             BigDecimal num = new BigDecimal("39.99");
             assertThrows(Exception.class, () -> {
@@ -681,6 +725,7 @@ class WhatNestTransactionTest {
          * Approved by: Panagiotis Petridis
          */
         @Test
+        @DisplayName("Checks transactionName and transactionValue are not missing - 1.11.4")
         void checkParameters3() {
             assertThrows(Exception.class, () -> {
                 new WhatNestTransaction(null, null , 4);
