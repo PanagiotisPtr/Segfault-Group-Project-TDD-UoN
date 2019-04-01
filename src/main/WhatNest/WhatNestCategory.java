@@ -1,3 +1,5 @@
+package WhatNest;
+
 import java.math.BigDecimal;
 
 public class WhatNestCategory {
