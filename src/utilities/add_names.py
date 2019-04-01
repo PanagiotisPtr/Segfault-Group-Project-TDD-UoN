@@ -46,9 +46,9 @@ with open(filename) as f:
         if '@Test' in line:
             m += 1
             if get_id(k,n,m) not in desc:
-                line = line + num_spaces(line) + '@DisplayName("' + desc + ' - ' + get_id(k,n,m) + '")\n'
+                line = line + num_spaces(line) + '@DisplayName("' + get_id(k,n,m) + ' - ' + desc + '")\n'
             else:
-                line = line + num_spaces(line) + '@DisplayName("' + desc + '")\n'
+                line = line + num_spaces(line) + '@DisplayName("' + get_id(k,n,m) + ' - ' + desc[:-8] + '")\n'
         new_file += line
     new_file += content[-1]
 
