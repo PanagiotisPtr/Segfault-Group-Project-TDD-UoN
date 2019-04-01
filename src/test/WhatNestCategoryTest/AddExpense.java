@@ -9,8 +9,8 @@ import java.math.BigDecimal;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@DisplayName("2.08 - WhatNestCategoryTest.addExpenseTest")
-class addExpenseTest {
+@DisplayName("2.08 - WhatNestCategoryTest.AddExpense")
+class AddExpense {
     /*
      * Test that it accepts BigDecimal type
      * Written by: Lars Lunde 28/03/2019

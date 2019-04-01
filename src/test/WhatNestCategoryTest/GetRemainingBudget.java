@@ -8,8 +8,8 @@ import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@DisplayName("2.11 - WhatNestCategoryTest.getRemainingBudget")
-class getRemainingBudget {
+@DisplayName("2.11 - WhatNestCategoryTest.GetRemainingBudget")
+class GetRemainingBudget {
     /*
      * Test that correct remaining budget is found
      * Written by: Tara Dilley 28/03/2019

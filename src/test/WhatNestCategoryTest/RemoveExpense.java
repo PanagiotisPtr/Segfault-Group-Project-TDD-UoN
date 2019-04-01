@@ -9,8 +9,8 @@ import java.math.BigDecimal;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@DisplayName("2.09 - WhatNestCategoryTest.removeExpense")
-class removeExpense{
+@DisplayName("2.09 - WhatNestCategoryTest.RemoveExpense")
+class RemoveExpense{
     /*
      * Checks that valid inputs give correct output
      * Written by: Tara Dilley 28/03/2019

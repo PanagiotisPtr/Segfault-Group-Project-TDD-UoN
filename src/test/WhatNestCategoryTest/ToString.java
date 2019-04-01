@@ -8,8 +8,8 @@ import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@DisplayName("2.12 - WhatNestCategoryTest.toStringOverride")
-class toStringOverride{
+@DisplayName("2.12 - WhatNestCategoryTest.ToString")
+class ToString{
     /*
      * Checks output when values are all 0
      * Written by: Tara Dilley 28/03/2019

@@ -8,8 +8,8 @@ import java.math.BigDecimal;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@DisplayName("2.02 - WhatNestCategoryTest.CategoryBudgetTest")
-class CategoryBudgetTest {
+@DisplayName("2.02 - WhatNestCategoryTest.CategoryBudget")
+class CategoryBudget {
     /*
      * Create Category object with name "Example" and budget to 12 and make
      * sure that getCategoryBudget returns 12

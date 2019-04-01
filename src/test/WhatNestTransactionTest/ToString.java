@@ -10,8 +10,8 @@ import java.util.Date;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@DisplayName("1.11 - WhatNestTransactionTest.toString")
-class toString {
+@DisplayName("1.11 - WhatNestTransactionTest.ToString")
+class ToString {
     /*
      * Checks for a clear representation (valid transaction date, name and value)
      * Written by: Tara Dilley 28/03/2019

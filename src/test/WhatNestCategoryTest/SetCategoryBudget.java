@@ -9,8 +9,8 @@ import java.math.BigDecimal;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-@DisplayName("2.05 - WhatNestCategoryTest.TestSetCategoryBudget")
-class TestSetCategoryBudget {
+@DisplayName("2.05 - WhatNestCategoryTest.SetCategoryBudget")
+class SetCategoryBudget {
     /*
      * Test that it accepts floats
      * Written by: Lars Lunde 28/03/2019
