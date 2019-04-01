@@ -48,7 +48,10 @@
             <sourceDirectories><sourceDirectory>test</sourceDirectory></sourceDirectories>
             <testSourceDirectories><testSourceDirectory>test</testSourceDirectory></testSourceDirectories>
             <configLocation>checkstyle.xml</configLocation>
-            <includeTestSourceDirectory>true</includeTestSourceDirectory>
+	    <includeTestSourceDirectory>true</includeTestSourceDirectory>
+	    <includes>
+		    <include>**/*.java</include>
+	    </includes>
           </configuration>
         </plugin>
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
