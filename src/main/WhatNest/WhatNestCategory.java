@@ -1,5 +1,7 @@
 package WhatNest;
 
+import java.util.*;
+
 import java.math.BigDecimal;
 
 public class WhatNestCategory {
@@ -15,7 +17,9 @@ public class WhatNestCategory {
 	}
 	
 	public WhatNestCategory(String newTitle) {
-		CategoryName = newTitle;
+        if(!validCategoryName(newTitle))
+            throw new IllegalArgumentException("Invalid category name");
+        CategoryName = newTitle;
 		CategoryBudget = new BigDecimal("0.00");
 		CategorySpend = new BigDecimal("0.00");
 	}
@@ -33,12 +37,8 @@ public class WhatNestCategory {
 	}
 	
 	public void setCategoryName(String newName) throws IllegalArgumentException {
-        if (newName.length() > 15) {
-            throw new IllegalArgumentException("Name should be 15 characters or less");
-        }
-        if (newName.length() == 0) {
-            throw new IllegalArgumentException("Name should not be empty");
-        }
+        if(!validCategoryName(newName))
+            throw new IllegalArgumentException("Invalid category name");
 		CategoryName = newName;
 	}
 	
@@ -66,10 +66,27 @@ public class WhatNestCategory {
 		BigDecimal remainingBudget = CategoryBudget.subtract(CategorySpend);
 		return remainingBudget;
 	}
-	
+
 	@Override
 	public String toString() {
 		return CategoryName + "(£"+CategoryBudget.toPlainString()+") - Est. £"+CategorySpend.toPlainString()+" (£"+getRemainingBudget().toPlainString()+" remaining)";
 	}
-	
+
+	/*
+	* Helper functions
+	* */
+
+	private boolean validCategoryName(String name) {
+        if (name.length() > 15)
+            return false;
+        if (name.length() == 0)
+            return false;
+        if (WhatNestApp.UserCategories == null)
+            return true; //Removes dependency that the array must be created, WhatNestCategory should also work independently.
+        for (WhatNestCategory cat : WhatNestApp.UserCategories)
+            if (cat.CategoryName().equals(name))
+                return false;
+        return true;
+    }
+
 }

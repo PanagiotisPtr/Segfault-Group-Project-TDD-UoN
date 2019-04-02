@@ -1,16 +1,25 @@
 package WhatNestCategoryTest;
 
+import WhatNest.WhatNestApp;
 import WhatNest.WhatNestCategory;
+import WhatNest.WhatNestTransaction;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @DisplayName("2.04 - WhatNestCategoryTest.SetCategoryName")
 class SetCategoryName {
+
+    @BeforeEach
+    void initialise() {
+        WhatNestApp.UserCategories = new ArrayList<>();
+    }
     /*
      * Make sure that the name changes when you call function with a string
      * Written by: Lars Lunde 28/03/2019
@@ -58,8 +67,10 @@ class SetCategoryName {
     @DisplayName("2.4.4 - Create 2 classes with same name make sure it gives error")
     void duplicateCategory() {
         WhatNestCategory cat = new WhatNestCategory("Example");
+        WhatNestApp.UserCategories.add(cat);
         assertThrows(Exception.class, () -> {
             WhatNestCategory dog = new WhatNestCategory("Example");
+            WhatNestApp.UserCategories.add(dog);
         });
     }
     /*
