@@ -32,7 +32,10 @@ public class WhatNestCategory {
 		return CategorySpend;
 	}
 	
-	public void setCategoryName(String newName) {
+	public void setCategoryName(String newName) throws IllegalArgumentException {
+        if (newName.length() > 15) {
+            throw new IllegalArgumentException("Name should be 15 characters or less");
+        }
 		CategoryName = newName;
 	}
 	
