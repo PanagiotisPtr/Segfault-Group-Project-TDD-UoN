@@ -52,7 +52,11 @@ public class WhatNestCategory {
 	}
 	
 	public void addExpense(BigDecimal valueToAdd) {
-		CategorySpend = CategorySpend.add(valueToAdd);
+        if (valueToAdd.compareTo(new BigDecimal("0.00")) == 1) {
+            CategorySpend = CategorySpend.add(valueToAdd);
+        } else {
+            throw new IllegalArgumentException("Expense value should be positive");
+        }
 	}
 	
 	public void removeExpense(BigDecimal valueToRemove) {
