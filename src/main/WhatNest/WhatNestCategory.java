@@ -6,12 +6,13 @@ public class WhatNestCategory {
 	private String CategoryName;
 	private BigDecimal CategoryBudget;
 	private BigDecimal CategorySpend;
-	
+	private static int catID = 1;
 	
 	public WhatNestCategory() {
-		CategoryName = "New Category";
+		CategoryName = "Category " + catID;
 		CategoryBudget = new BigDecimal("0.00");
 		CategorySpend = new BigDecimal("0.00");
+		catID++;
 	}
 	
 	public WhatNestCategory(String newTitle) {
@@ -20,6 +21,7 @@ public class WhatNestCategory {
         CategoryName = newTitle;
 		CategoryBudget = new BigDecimal("0.00");
 		CategorySpend = new BigDecimal("0.00");
+        catID++;
 	}
 	
 	public String CategoryName() {
