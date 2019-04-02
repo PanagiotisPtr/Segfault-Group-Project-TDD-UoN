@@ -36,6 +36,9 @@ public class WhatNestCategory {
         if (newName.length() > 15) {
             throw new IllegalArgumentException("Name should be 15 characters or less");
         }
+        if (newName.length() == 0) {
+            throw new IllegalArgumentException("Name should not be empty");
+        }
 		CategoryName = newName;
 	}
 	
