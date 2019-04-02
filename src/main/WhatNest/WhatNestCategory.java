@@ -1,7 +1,5 @@
 package WhatNest;
 
-import java.util.*;
-
 import java.math.BigDecimal;
 
 public class WhatNestCategory {
@@ -46,6 +44,8 @@ public class WhatNestCategory {
 		//1 means bigger, -1 means smaller, 0 means same
 		if (newValue.compareTo(new BigDecimal("0.00")) == 1) {
 			CategoryBudget = newValue;
+		} else {
+			throw new IllegalArgumentException("Budget should be positive");
 		}
 	}
 	
