@@ -60,7 +60,11 @@ public class WhatNestCategory {
 	}
 	
 	public void removeExpense(BigDecimal valueToRemove) {
-		CategorySpend = CategorySpend.subtract(valueToRemove);
+        if (valueToRemove.compareTo(new BigDecimal("0.00")) == 1) {
+            CategorySpend = CategorySpend.subtract(valueToRemove);
+        } else {
+            throw new IllegalArgumentException("Expense value should be positive");
+        }
 	}
 	
 	public void resetBudgetSpend() {
