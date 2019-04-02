@@ -34,7 +34,7 @@ class CategoryOverview {
         }
 
         /* Test with no categories
-         * Written by: Matthew Smith & Berk Demir 2/04/19
+         * Written by: Matthew Smith 2/04/19
          * Authorised by: Panagiotis Petridis
          */
         @Test
@@ -48,7 +48,7 @@ class CategoryOverview {
         }
 
         /* Test with 1 category with no transactions
-         * Written by: Matthew Smith & Berk Demir 2/4/19
+         * Written by: Matthew Smith 2/4/19
          * Authorised by: Panagiotis Petridis
          */
         @Test
@@ -62,7 +62,7 @@ class CategoryOverview {
                 WhatNestApp.UserCategories.add(cat1);
 
                 WhatNestApp.CategoryOverview();
-                assertEquals("1) cat1 (budget: £10) - £0.00 (£10.00 remaining)", output.toString());
+                assertEquals("1) cat1 (budget: £10) - £0.00 (£10.00 remaining)\n", output.toString());
         }
 
         /* Test with 1 category with 1 transaction
@@ -83,11 +83,11 @@ class CategoryOverview {
                 WhatNestApp.UserCategories.add(cat1);
 
                 WhatNestApp.CategoryOverview();
-                assertEquals("1) cat1 (budget: £10) - £4.99 (£5.01 remaining)", output.toString());
+                assertEquals("1) cat1 (budget: £10) - £4.99 (£5.01 remaining)\n",output.toString());
         }
 
         /* Test with 1 category with 3 transactions
-         * Written by: Matthew Smith & Berk Demir 2/4/19
+         * Written by: Berk Demir 2/4/19
          * Authorised by: Panagiotis Petridis
          */
         @Test
@@ -108,11 +108,11 @@ class CategoryOverview {
                 WhatNestApp.UserCategories.add(cat1);
 
                 WhatNestApp.CategoryOverview();
-                assertEquals("1) cat1 (budget: £10) - £8.00 (£2.00 remaining)", output.toString());
+                assertEquals("1) cat1 (budget: £10) - £8.00 (£2.00 remaining)\n", output.toString());
         }
 
         /* Test with 1 category with 3 transactions overspent
-         * Written by: Matthew Smith & Berk Demir 2/4/19
+         * Written by: Berk Demir 2/4/19
          * Authorised by: Panagiotis Petridis
          */
         @Test
@@ -133,11 +133,11 @@ class CategoryOverview {
                 WhatNestApp.UserCategories.add(cat1);
 
                 WhatNestApp.CategoryOverview();
-                assertEquals("1) cat1 (budget: £10) - £10.01 (£0.01 overspent)", output.toString());
+                assertEquals("1) cat1 (budget: £10) - £10.01 (£0.01 overspent)\n", output.toString());
         }
 
         /* Test with 1 category with 2 transactions exactly equal to budget
-         * Written by: Matthew Smith & Berk Demir 2/4/19
+         * Written by: Berk Demir 2/4/19
          * Authorised by: Panagiotis Petridis
          */
         @Test
@@ -156,11 +156,11 @@ class CategoryOverview {
                 WhatNestApp.UserCategories.add(cat1);
 
                 WhatNestApp.CategoryOverview();
-                assertEquals("1) cat1 (budget: £10) - £10.01 (£0.00 remaining)", output.toString());
+                assertEquals("1) cat1 (budget: £10) - £10.01 (£0.00 remaining)\n", output.toString());
         }
 
         /* Test with 2 categories with 2 transactions each all in budget
-         * Written by: Matthew Smith & Berk Demir 2/4/19
+         * Written by: Berk Demir 2/4/19
          * Authorised by: Panagiotis Petridis
          */
         @Test
@@ -186,10 +186,10 @@ class CategoryOverview {
 
                 WhatNestApp.CategoryOverview();
                 assertEquals("1) cat1 (budget: £10) - £9.99 (£0.01 remaining)\n"
-                        + "2) cat2 (budget: £3.39) - £3.09 (£0.10 remaining)", output.toString());
+                        + "2) cat2 (budget: £3.39) - £3.09 (£0.10 remaining)\n", output.toString());
         }
         /* Test with 3 categories, 1 with 0 1 with 1 and 1 with 2 transactions. A single category is not in budget
-         * Written by: Matthew Smith & Berk Demir 2/4/19
+         * Written by: Berk Demir 2/4/19
          * Authorised by: Panagiotis Petridis
          */
         @Test
@@ -216,6 +216,6 @@ class CategoryOverview {
                 WhatNestApp.CategoryOverview();
                 assertEquals("1) cat1 (budget: £10) - £0.00 (£10.00 remaining)\n"
                         + "2) cat2 (budget: £3.39) - 0.39 (£3.00 remaining)\n"
-                        + "3) cat3 (budget: £1) - 2.70 (£1.70 overspent)", output.toString());
+                        + "3) cat3 (budget: £1) - 2.70 (£1.70 overspent)\n", output.toString());
         }
 }
