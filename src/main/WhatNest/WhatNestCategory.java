@@ -82,6 +82,10 @@ public class WhatNestCategory {
 
 	@Override
 	public String toString() {
+	    if(getRemainingBudget().compareTo(new BigDecimal("0")) == -1) {
+            return "[" + CategoryName + "]" + " (" + toCurrency(CategoryBudget)+") - Est. "
+                    + toCurrency(CategorySpend) + " ("+toCurrency(getRemainingBudget()) .substring(1) +" overspent)";
+        }
 		return "[" + CategoryName + "]" + " (" + toCurrency(CategoryBudget)+") - Est. "
                 + toCurrency(CategorySpend) + " ("+toCurrency(getRemainingBudget())+" remaining)";
 	}
