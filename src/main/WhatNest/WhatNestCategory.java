@@ -1,6 +1,7 @@
 package WhatNest;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
 
 public class WhatNestCategory {
 	private String CategoryName;
@@ -44,15 +45,15 @@ public class WhatNestCategory {
 	
 	public void setCategoryBudget(BigDecimal newValue) {
 		//1 means bigger, -1 means smaller, 0 means same
-		if (newValue.compareTo(new BigDecimal("0.00")) == 1) {
-			CategoryBudget = newValue;
+		if (newValue.compareTo(new BigDecimal("0.00")) == -1) {
+            throw new IllegalArgumentException("Budget should be positive");
 		} else {
-			throw new IllegalArgumentException("Budget should be positive");
+            CategoryBudget = newValue;
 		}
 	}
 	
 	public void addExpense(BigDecimal valueToAdd) {
-        if (valueToAdd.compareTo(new BigDecimal("0.00")) == 1) {
+        if (valueToAdd.compareTo(new BigDecimal("0.00")) != -1) {
             CategorySpend = CategorySpend.add(valueToAdd);
         } else {
             throw new IllegalArgumentException("Expense value should be positive");
@@ -81,7 +82,8 @@ public class WhatNestCategory {
 
 	@Override
 	public String toString() {
-		return CategoryName + "(£"+CategoryBudget.toPlainString()+") - Est. £"+CategorySpend.toPlainString()+" (£"+getRemainingBudget().toPlainString()+" remaining)";
+		return "[" + CategoryName + "]" + " (" + toCurrency(CategoryBudget)+") - Est. "
+                + toCurrency(CategorySpend) + " ("+toCurrency(getRemainingBudget())+" remaining)";
 	}
 
 	/*
@@ -99,6 +101,10 @@ public class WhatNestCategory {
             if (cat.CategoryName().equals(name))
                 return false;
         return true;
+    }
+
+    private String toCurrency(BigDecimal bd) {
+	    return NumberFormat.getCurrencyInstance().format(bd);
     }
 
 }
