@@ -1,16 +1,24 @@
 package WhatNestCategoryTest;
 
+import WhatNest.WhatNestApp;
 import WhatNest.WhatNestCategory;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @DisplayName("2.07 - WhatNestCategoryTest.MainConstructor")
 class MainConstructor {
+    @BeforeEach
+    void initialise() {
+        WhatNestApp.UserCategories = new ArrayList<>();
+    }
+
     /*
      * Check that it meets specification
      * Written by: Berk Demir 28/03/2019
@@ -31,8 +39,10 @@ class MainConstructor {
     @DisplayName("2.7.2 - Create 2 classes with same name make sure it gives error")
     void checkDuplicate() {
         WhatNestCategory dup = new WhatNestCategory("Example");
+        WhatNestApp.UserCategories.add(dup);
         assertThrows(Exception.class, () -> {
             WhatNestCategory dup2 = new WhatNestCategory("Example");
+            WhatNestApp.UserCategories.add(dup2);
         });
     }
     /*

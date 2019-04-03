@@ -72,7 +72,7 @@ public class WhatNestTransaction {
 			transactionTime = tTime;
 		}
 	}
-	
+
 	@Override
 	public String toString() {
 		return transactionName + " - £" + transactionValue.toString();
