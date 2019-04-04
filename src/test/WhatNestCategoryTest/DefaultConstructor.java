@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 
 @DisplayName("2.06 - WhatNestCategoryTest.DefaultConstructor")
 class DefaultConstructor {
+
     /*
      * Check that both spend and budget are set to 0
      * Written by: Matthew Smith 28/03/2019
@@ -25,6 +26,7 @@ class DefaultConstructor {
         assertEquals(0, cat.CategorySpend().compareTo(zero));
         assertEquals(0, cat.CategoryBudget().compareTo(zero));
     }
+
     /*
      * Check that each name is unique by creating multiple classes (1000+)
      * and make sure they all have unique names
@@ -32,7 +34,7 @@ class DefaultConstructor {
      * Approved by: Panagiotis Petridis
      */
     @Test
-    @DisplayName("2.6.2 - and make sure they all have unique names")
+    @DisplayName("2.6.2 - Check that each name is unique by creating multiple classes (1000+) and make sure they all have unique names")
     void uniqueName() {
         HashSet<String> usedNames = new HashSet<>();
         for (int i = 0; i < 1000; i++) {
